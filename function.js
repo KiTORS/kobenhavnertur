@@ -28,7 +28,7 @@ function initMap() {
     });
 
     // vi loader JSON
-    $.getJSON("maps.json", visListen);
+    $.getJSON("data.json", visListen);
 
 
 
@@ -38,16 +38,16 @@ function initMap() {
 
 
 
-//Variabler til SVG Overlay
-//     var bounds = {
-//         north: 55.70852292366827,
-//         south: 55.7044969726319,
-//         east: 12.549826564895625,
-//         west: 12.528347435104365
-//     }
-//
-//     var overlay = new google.maps.GroundOverlay('overlay-01.svg', bounds);
-//     overlay.setMap(map);
+    //Variabler til SVG Overlay
+    //     var bounds = {
+    //         north: 55.70852292366827,
+    //         south: 55.7044969726319,
+    //         east: 12.549826564895625,
+    //         west: 12.528347435104365
+    //     }
+    //
+    //     var overlay = new google.maps.GroundOverlay('overlay-01.svg', bounds);
+    //     overlay.setMap(map);
 
 }
 
