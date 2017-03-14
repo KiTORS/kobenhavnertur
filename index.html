@@ -5,22 +5,19 @@
     <title>Map over KEA</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <link rel="stylesheet" href="maps.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
     <h1>KEAmon GO</h1>
     <div id="map"></div>
-    <!--    Hvorfor????? -->
-    <!--    <div id="debug_info"></div>-->
 
-    <!--Vi laver en template-->
     <template id="infoboks">
         <div class=tekst_om_kea>
 
             <h3 class="data_navn">OVERSKRIFT</h3>
-            <img class="data_billede" src="bamse.svg">
+            <img class="data_billede" src="..">
 
             <p class="data_beskrivelse">beskrivelse</p>
 
@@ -28,13 +25,12 @@
     </template>
 
 
-
+    <!-- JQUERY + JS -->
     <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-    <script src="maps.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnFl9bQAehgWyNosRebn9WVE5KNwryAns&callback=initMap">
+    <script src="function.js"></script>
 
-
-    </script>
+    <!-- GOOGLE MAPS -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnFl9bQAehgWyNosRebn9WVE5KNwryAns&callback=initMap"></script>
 
 
 
