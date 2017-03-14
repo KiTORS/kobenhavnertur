@@ -1,50 +1,120 @@
 [{
-        "id": "kea",
-        "navn": "KEA HOVEDINDGANG",
+        "id": "post_1",
+        "navn": "Nyhavn bus",
         "position": {
-            "lat": 55.706510,
-            "lng": 12.539087
+            "lat": 55.679126,
+            "lng": 12.594271
         },
-        "beskrivelse": "Velkommen til KEA!",
-        "billede": "img/kea.jpg"
-
-
-
-
-},
+        "beskrivelse": "..",
+    },
     {
-        "id": "lidl",
-        "navn": "LIDL",
+        "id": "post_2",
+        "navn": "Marinestationen",
         "position": {
-            "lat": 55.706519,
-            "lng": 12.538136
+            "lat": 55.684790,
+            "lng": 12.607532
         },
-        "beskrivelse": "Her kan du handle",
-        "billede": "img/lidl.png"
-
-
-},
+        "beskrivelse": "..",
+    },
     {
-        "id": "kro",
-        "navn": "LYGTENS KRO",
+        "id": "post_3",
+        "navn": "Takkeladsvej",
         "position": {
-            "lat": 55.703304,
-            "lng": 12.537322
+            "lat": 55.685526,
+            "lng": 12.605985
         },
-        "beskrivelse": "Her kan få øller",
-        "billede": "img/kro.jpg"
-
-
-},
+        "beskrivelse": "..",
+    },
     {
-        "id": "fredagsbar",
-        "navn": "FREDAGSBAREN",
+        "id": "post_4",
+        "navn": "Søværnets Officerskole",
         "position": {
-            "lat": 55.706497,
-            "lng": 12.539647
+            "lat": 55.686589,
+            "lng": 12.606382
         },
-        "beskrivelse": "Her kan du få mange øller",
-        "billede": "img/fredagsbar.png"
+        "beskrivelse": "..",
+    },
+    {
+        "id": "post_5",
+        "navn": "Mastekranen",
+        "position": {
+            "lat": 55.688167,
+            "lng": 12.605921
+        },
+        "beskrivelse": "..",
+    },
+    {
+        "id": "post_6",
+        "navn": "Peder Skram",
+        "position": {
+            "lat": 55.688650,
+            "lng": 12.604845
+        },
+        "beskrivelse": "..",
+    },
+    {
+        "id": "post_7",
+        "navn": "Nyholms Hovedvagt",
+        "position": {
+            "lat": 55.688828,
+            "lng": 12.606191
+        },
+        "beskrivelse": "..",
+    },
+    {
+        "id": "post_8",
+        "navn": "Statue",
+        "position": {
+            "lat": 55.689263,
+            "lng": 12.606722
+        },
+        "beskrivelse": "..",
+    },
+    {
+        "id": "post_9",
+        "navn": "Spanteloftvej",
+        "position": {
+            "lat": 55.687229,
+            "lng": 12.607527
+        },
+        "beskrivelse": "..",
+    },
+    {
+        "id": "post_10",
+        "navn": "Leo Mathisens vej",
+        "position": {
+            "lat": 55.682652,
+            "lng": 12.606270
+        },
+        "beskrivelse": "..",
+    },
+    {
+        "id": "post_11",
+        "navn": "Kanonbådsvej",
+        "position": {
+            "lat": 55.679236,
+            "lng": 12.606193
+        },
+        "beskrivelse": "..",
+    },
+    {
+        "id": "post_12",
+        "navn": "Torpedohallerne",
+        "position": {
+            "lat": 55.679027,
+            "lng": 12.605377
+        },
+        "beskrivelse": "..",
+    },
+    {
+        "id": "post_13",
+        "navn": "Kuglegården",
+        "position": {
+            "lat": 55.678533,
+            "lng": 12.600755
+        },
+        "beskrivelse": "..",
+    },
 
 
 }]
