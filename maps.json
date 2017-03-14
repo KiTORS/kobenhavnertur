@@ -1,0 +1,50 @@
+[{
+        "id": "kea",
+        "navn": "KEA HOVEDINDGANG",
+        "position": {
+            "lat": 55.706510,
+            "lng": 12.539087
+        },
+        "beskrivelse": "Velkommen til KEA!",
+        "billede": "img/kea.jpg"
+
+
+
+
+},
+    {
+        "id": "lidl",
+        "navn": "LIDL",
+        "position": {
+            "lat": 55.706519,
+            "lng": 12.538136
+        },
+        "beskrivelse": "Her kan du handle",
+        "billede": "img/lidl.png"
+
+
+},
+    {
+        "id": "kro",
+        "navn": "LYGTENS KRO",
+        "position": {
+            "lat": 55.703304,
+            "lng": 12.537322
+        },
+        "beskrivelse": "Her kan få øller",
+        "billede": "img/kro.jpg"
+
+
+},
+    {
+        "id": "fredagsbar",
+        "navn": "FREDAGSBAREN",
+        "position": {
+            "lat": 55.706497,
+            "lng": 12.539647
+        },
+        "beskrivelse": "Her kan du få mange øller",
+        "billede": "img/fredagsbar.png"
+
+
+}]
