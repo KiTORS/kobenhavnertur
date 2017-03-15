@@ -67,3 +67,5 @@ function createMarker(post) {
 
     }
 };
+
+function questions() {};
