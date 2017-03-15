@@ -9,7 +9,8 @@ function initMap() {
         center: {
             lat: 55.706510,
             lng: 12.539087
-        }
+        },
+        disableDefaultUI: true,
     });
 
     // -- GEOLOCATION - MY LOCATION -- //

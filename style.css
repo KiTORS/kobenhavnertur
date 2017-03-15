@@ -1,8 +1,7 @@
 #map {
-    height: 80%;
-    width: 80%;
+    height: 86%;
+    width: 100%;
     margin-top: 10vw;
-    margin: auto;
 }
 
 /* Optional: Makes the sample page fill the window. */
@@ -13,11 +12,21 @@ body {
     margin: 0;
     padding: 0;
 }
-image {
-    width: 10%;
-    height: 10%;
+.score_button {
+    width: 20vw;
+    height: 20vw;
+    background-color: blue;
+    position: absolute;
+    z-index: 10;
+    top: 85%;
+    left: 73%;
 }
-.tekst_om_kea img {
-    width: 40%;
-    height: 40%;
+.question_button {
+    width: 20vw;
+    height: 20vw;
+    background-color: red;
+    position: absolute;
+    z-index: 10;
+    top: 85%;
+    left: 47%;
 }
