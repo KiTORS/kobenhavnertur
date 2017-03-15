@@ -1,5 +1,7 @@
 // -- VARIABLER -- //
 var map;
+var list;
+var list_groups;
 
 // -- GOOGLE MAP -- //
 function initMap() {
@@ -32,10 +34,17 @@ function initMap() {
 
 // -- JSON DATA -- //
 $.getJSON("data.json", showList);
+$.getJSON("data_groups.json", showList_groups);
 
-function showList(list) {
+function showList(data) {
     console.log("JSON Loadet");
-    list.forEach(createMarker);
+    data.forEach(createMarker);
+    list = data;
+}
+
+function showList_groups(data) {
+    console.log("JSON groups Loadet");
+    list_groups = data;
 }
 
 // -- LAV EN MARKER -- //
@@ -65,5 +74,28 @@ function createMarker(post) {
         infowindow.setContent(klon);
         infowindow.open(map, marker);
 
+    }
+};
+$(".score_button").on("click", score);
+
+function score() {
+    list_groups.forEach(scoreclone);
+    console.log("click on score");
+
+    function scoreclone(post) {
+        console.log("kloner score");
+        // -- CLONE -- //
+        var klon = document.querySelector("#score_window").content.cloneNode(true);
+
+        klon.querySelector(".data_gruppe01").textContent = post.group;
+        klon.querySelector(".data_gruppe02").textContent = post.group;
+        klon.querySelector(".data_gruppe03").textContent = post.group;
+        klon.querySelector(".data_gruppe04").textContent = post.group;
+        klon.querySelector(".data_gruppe05").textContent = post.group;
+
+        document.querySelector(".scoreboard").innerHTML = "";
+        document.querySelector(".scoreboard").appendChild(klon);
+
+        $(".scoreboard").toggleClass("scoretoggle");
     }
 };

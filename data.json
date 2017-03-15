@@ -1,4 +1,5 @@
-[{
+[
+    {
         "id": "post_1",
         "name": "Nyhavn bus",
         "position": {
@@ -193,6 +194,4 @@
         "a3": "fordi det lyder sejere som bus",
         "a4": "fordi der skulle være noget mystery"
     }
-
-
 ]
