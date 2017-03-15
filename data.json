@@ -1,119 +1,119 @@
 [{
         "id": "post_1",
-        "navn": "Nyhavn bus",
+        "name": "Nyhavn bus",
         "position": {
             "lat": 55.679126,
             "lng": 12.594271
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_2",
-        "navn": "Marinestationen",
+        "name": "Marinestationen",
         "position": {
             "lat": 55.684790,
             "lng": 12.607532
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_3",
-        "navn": "Takkeladsvej",
+        "name": "Takkeladsvej",
         "position": {
             "lat": 55.685526,
             "lng": 12.605985
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_4",
-        "navn": "Søværnets Officerskole",
+        "name": "Søværnets Officerskole",
         "position": {
             "lat": 55.686589,
             "lng": 12.606382
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_5",
-        "navn": "Mastekranen",
+        "name": "Mastekranen",
         "position": {
             "lat": 55.688167,
             "lng": 12.605921
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_6",
-        "navn": "Peder Skram",
+        "name": "Peder Skram",
         "position": {
             "lat": 55.688650,
             "lng": 12.604845
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_7",
-        "navn": "Nyholms Hovedvagt",
+        "name": "Nyholms Hovedvagt",
         "position": {
             "lat": 55.688828,
             "lng": 12.606191
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_8",
-        "navn": "Statue",
+        "name": "Statue",
         "position": {
             "lat": 55.689263,
             "lng": 12.606722
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_9",
-        "navn": "Spanteloftvej",
+        "name": "Spanteloftvej",
         "position": {
             "lat": 55.687229,
             "lng": 12.607527
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_10",
-        "navn": "Leo Mathisens vej",
+        "name": "Leo Mathisens vej",
         "position": {
             "lat": 55.682652,
             "lng": 12.606270
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_11",
-        "navn": "Kanonbådsvej",
+        "name": "Kanonbådsvej",
         "position": {
             "lat": 55.679236,
             "lng": 12.606193
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_12",
-        "navn": "Torpedohallerne",
+        "name": "Torpedohallerne",
         "position": {
             "lat": 55.679027,
             "lng": 12.605377
         },
-        "beskrivelse": ".."
+        "about": ".."
     },
     {
         "id": "post_13",
-        "navn": "Kuglegården",
+        "name": "Kuglegården",
         "position": {
             "lat": 55.678533,
             "lng": 12.600755
         },
-        "beskrivelse": ".."
+        "about": ".."
     }
 
 

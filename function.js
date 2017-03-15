@@ -1,106 +1,20 @@
-//------- Mine variabler ---------
-
-var image = {
-    url: 'kim.svg'
-};
-
-// Variabel for tekst
+// -- VARIABLER -- //
 var map;
+var post;
+var marker;
 
-
-// Koordinaterne, der fortæller hvor de forskellige markers skal være
-// Lattitude: x-aksen
-// Longittude: y-aksen
-
+// -- GOOGLE MAP -- //
 function initMap() {
-    console.log("Kortet bliver vist");
-    var myLatLng1 = {
-        lat: 55.706510,
-        lng: 12.539087
-    };
-
-
-    //        Markers med deres properties
-
+    console.log("Google Map Loadet");
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
-        center: myLatLng1
+        center: {
+            lat: 55.706510,
+            lng: 12.539087
+        }
     });
 
-    // vi loader JSON
-    $.getJSON("data.json", visListen);
-
-
-
-    //             document.querySelector("#infoboks").appendChild(klon);
-
-
-
-
-
-    //Variabler til SVG Overlay
-    //     var bounds = {
-    //         north: 55.70852292366827,
-    //         south: 55.7044969726319,
-    //         east: 12.549826564895625,
-    //         west: 12.528347435104365
-    //     }
-    //
-    //     var overlay = new google.maps.GroundOverlay('overlay-01.svg', bounds);
-    //     overlay.setMap(map);
-
-}
-
-
-function visListen(listen) {
-    console.log("json er loadet");
-    console.table(listen);
-    listen.forEach(lavEnMarker);
-}
-
-
-function lavEnMarker(interessepunkt) {
-    console.log("lavEnMarker:", interessepunkt);
-    var marker = new google.maps.Marker({
-        //                Position referere til var "myLatLng" længere oppe på siden, hvor koordinaterne står
-        position: interessepunkt.position,
-        map: map,
-
-        //         icon: image,
-        title: interessepunkt.navn
-    });
-
-
-
-    marker.addListener("click", clickPaaIkon);
-
-
-    function clickPaaIkon() {
-        console.log("klik på ikon");
-
-
-        //        Når man klikker på ikon, skal infoboks komme frem
-
-
-        var infowindow = new google.maps.InfoWindow({
-            //            content: "Kom og besøg KEA",
-
-        });
-
-        //Vi kloner template class
-        var klon = document.querySelector("#infoboks").content.cloneNode(true);
-
-        //Sæt data ind i klon, så alt data komemr med - brug div class fra HTML
-        klon.querySelector(".data_navn").textContent = interessepunkt.navn;
-        klon.querySelector(".data_beskrivelse").textContent = interessepunkt.beskrivelse;
-        klon.querySelector(".data_billede").src = interessepunkt.billede;
-        // Vi siger, at infowindow skal sætte content til det, vi har clonet
-        infowindow.setContent(klon);
-        //                Vi lader infowindow åbne i denne function
-        infowindow.open(map, marker);
-
-    }
-
+    // -- GEOLOCATION - MY LOCATION -- //
     if (navigator.geolocation) {
         navigator.geolocation.watchPosition(function (position) {
             var minPos = {
@@ -114,6 +28,43 @@ function lavEnMarker(interessepunkt) {
             });
         });
     }
+}
 
+// -- JSON DATA -- //
+$.getJSON("data.json", showList);
+
+function showList(list) {
+    console.log("JSON Loadet");
+    list.forEach(createMarker);
+}
+
+// -- LAV EN MARKER -- //
+function createMarker(postdata) {
+    post = postdata;
+
+    // -- MARKER VARIABEL --//
+    console.log("Marker Made");
+    marker = new google.maps.Marker({
+        position: post.position,
+        map: map,
+        title: post.navn
+    });
+    marker.addListener("click", clickOnMarker);
+};
+
+// -- CLICK ON MARKER -- //
+function clickOnMarker() {
+    console.log("click on marker");
+    var infowindow = new google.maps.InfoWindow({});
+
+    // -- CLONE -- //
+    var klon = document.querySelector("#infobox").content.cloneNode(true);
+
+    klon.querySelector(".data_name").textContent = post.name;
+    klon.querySelector(".data_about").textContent = post.about;
+    klon.querySelector(".data_img").src = post.img;
+
+    infowindow.setContent(klon);
+    infowindow.open(map, marker);
 
 }
