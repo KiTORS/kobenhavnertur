@@ -1,7 +1,5 @@
 // -- VARIABLER -- //
 var map;
-var post;
-var marker;
 
 // -- GOOGLE MAP -- //
 function initMap() {
@@ -39,32 +37,31 @@ function showList(list) {
 }
 
 // -- LAV EN MARKER -- //
-function createMarker(postdata) {
-    post = postdata;
+function createMarker(post) {
 
     // -- MARKER VARIABEL --//
     console.log("Marker Made");
-    marker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
         position: post.position,
         map: map,
-        title: post.navn
+        title: post.name
     });
     marker.addListener("click", clickOnMarker);
+
+
+    // -- CLICK ON MARKER -- //
+    function clickOnMarker() {
+        console.log("click on marker");
+        var infowindow = new google.maps.InfoWindow({});
+
+        // -- CLONE -- //
+        var klon = document.querySelector("#infobox").content.cloneNode(true);
+
+        klon.querySelector(".data_name").textContent = post.name;
+        klon.querySelector(".data_about").textContent = post.about;
+
+        infowindow.setContent(klon);
+        infowindow.open(map, marker);
+
+    }
 };
-
-// -- CLICK ON MARKER -- //
-function clickOnMarker() {
-    console.log("click on marker");
-    var infowindow = new google.maps.InfoWindow({});
-
-    // -- CLONE -- //
-    var klon = document.querySelector("#infobox").content.cloneNode(true);
-
-    klon.querySelector(".data_name").textContent = post.name;
-    klon.querySelector(".data_about").textContent = post.about;
-    klon.querySelector(".data_img").src = post.img;
-
-    infowindow.setContent(klon);
-    infowindow.open(map, marker);
-
-}
