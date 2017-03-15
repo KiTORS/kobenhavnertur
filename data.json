@@ -5,7 +5,13 @@
             "lat": 55.679126,
             "lng": 12.594271
         },
-        "about": "Post 1"
+        "about": "Post 1",
+        "qtitle": "Spørgsmål 1",
+        "question": "hvorfor er nyhavn bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_2",
@@ -14,7 +20,13 @@
             "lat": 55.684790,
             "lng": 12.607532
         },
-        "about": "Post 2"
+        "about": "Post 2",
+        "qtitle": "Spørgsmål 2",
+        "question": "hvorfor er marinestationen bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_3",
@@ -23,7 +35,13 @@
             "lat": 55.685526,
             "lng": 12.605985
         },
-        "about": "Post 3"
+        "about": "Post 3",
+        "qtitle": "Spørgsmål 3",
+        "question": "hvorfor er takkeladsvej bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_4",
@@ -32,7 +50,13 @@
             "lat": 55.686589,
             "lng": 12.606382
         },
-        "about": "Post 4"
+        "about": "Post 4",
+        "qtitle": "Spørgsmål 4",
+        "question": "hvorfor er søvernets officerskole bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_5",
@@ -41,7 +65,13 @@
             "lat": 55.688167,
             "lng": 12.605921
         },
-        "about": "Post 5"
+        "about": "Post 5",
+        "qtitle": "Spørgsmål 5",
+        "question": "hvorfor er mastekranen bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_6",
@@ -50,7 +80,13 @@
             "lat": 55.688650,
             "lng": 12.604845
         },
-        "about": "Post 6"
+        "about": "Post 6",
+        "qtitle": "Spørgsmål 6",
+        "question": "hvorfor er peder skram bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_7",
@@ -59,7 +95,13 @@
             "lat": 55.688828,
             "lng": 12.606191
         },
-        "about": "Post 7"
+        "about": "Post 7",
+        "qtitle": "Spørgsmål 7",
+        "question": "hvorfor er nyholms hovedvagt bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_8",
@@ -68,7 +110,13 @@
             "lat": 55.689263,
             "lng": 12.606722
         },
-        "about": "Post 8"
+        "about": "Post 8",
+        "qtitle": "Spørgsmål 8",
+        "question": "hvorfor er statue bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_9",
@@ -77,7 +125,13 @@
             "lat": 55.687229,
             "lng": 12.607527
         },
-        "about": "Post 9"
+        "about": "Post 9",
+        "qtitle": "Spørgsmål 9",
+        "question": "hvorfor er spanteloftvej bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_10",
@@ -86,7 +140,13 @@
             "lat": 55.682652,
             "lng": 12.606270
         },
-        "about": "Post 10"
+        "about": "Post 10",
+        "qtitle": "Spørgsmål 10",
+        "question": "hvorfor er leo mathisens vej bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_11",
@@ -95,7 +155,13 @@
             "lat": 55.679236,
             "lng": 12.606193
         },
-        "about": "Post 11"
+        "about": "Post 11",
+        "qtitle": "Spørgsmål 11",
+        "question": "hvorfor er kanonbådsvej bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_12",
@@ -104,7 +170,13 @@
             "lat": 55.679027,
             "lng": 12.605377
         },
-        "about": "Post 12"
+        "about": "Post 12",
+        "qtitle": "Spørgsmål 12",
+        "question": "hvorfor er torpedohallerne bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     },
     {
         "id": "post_13",
@@ -113,7 +185,13 @@
             "lat": 55.678533,
             "lng": 12.600755
         },
-        "about": "Post 13"
+        "about": "Post 13",
+        "qtitle": "Spørgsmål 13",
+        "question": "hvorfor er kuglegården bus ikke en båd?",
+        "a1": "fordi den er grim",
+        "a2": "fordi den ikke har lyst",
+        "a3": "fordi det lyder sejere som bus",
+        "a4": "fordi der skulle være noget mystery"
     }
 
 

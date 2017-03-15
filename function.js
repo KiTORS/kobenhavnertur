@@ -25,6 +25,7 @@ function initMap() {
                 map: map,
             });
         });
+        console.log("my location loadet")
     }
 }
 
