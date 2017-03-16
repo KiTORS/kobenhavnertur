@@ -25,12 +25,14 @@
 
     <template id="question_window">
         <div class=window>
-            <h2 class="data_qtitle">spørgsmål x</h2>
-            <h3 class="data_question">godt spørgsmål</h3>
-            <p class="data_a1">svar 01</p>
-            <p class="data_a2">svar 02</p>
-            <p class="data_a3">svar 03</p>
-            <p class="data_a4">svar 04</p>
+            <template id="question">
+                <h2 class="data_qtitle">spørgsmål x</h2>
+                <h3 class="data_question">godt spørgsmål</h3>
+                <p class="data_a1">svar 01</p>
+                <p class="data_a2">svar 02</p>
+                <p class="data_a3">svar 03</p>
+                <p class="data_a4">svar 04</p>
+            </template>
         </div>
     </template>
 
@@ -61,6 +63,7 @@
     </template>
 
     <div class="scoreboard"></div>
+    <div class="questionboard"></div>
 
 
     <!-- JQUERY + JS -->

@@ -64,3 +64,16 @@ h3,
     font-size: 5vw;
     margin-left: 14vw;
 }
+.questionboard {
+    width: 80%;
+    height: 50%;
+    position: absolute;
+    z-index: 11;
+    top: 53vw;
+    background-color: white;
+    left: 8%;
+    display: none;
+}
+.questiontoggle {
+    display: block;
+}

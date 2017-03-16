@@ -78,11 +78,18 @@ function createMarker(post) {
     }
 }
 $(".score_button").on("click", score_toggle);
+$(".question_button").on("click", question_toggle);
 
 function score_toggle() {
     console.log("score knap togglet")
     $(".scoreboard").toggleClass("scoretoggle");
     score_group();
+}
+
+function question_toggle() {
+    console.log("question knap togglet")
+    $(".questionboard").toggleClass("questiontoggle");
+    questions();
 }
 
 function score_group(e) {
@@ -132,4 +139,30 @@ function score_company(e) {
     document.querySelector(".scoreboard").appendChild(windowklon);
 
     $(".tab_group").on("click", score_group);
+}
+
+function questions(e) {
+
+    console.log("klikket på spørgsmålsknap");
+
+    var windowklon = document.querySelector("#question_window").content.cloneNode(true);
+    list.forEach(questionclone);
+
+    function questionclone(e) {
+        console.log("kloner spørgsmål");
+        // -- CLONE -- //
+        var klon = windowklon.querySelector("#question").content.cloneNode(true);
+
+        klon.querySelector(".data_qtitle").textContent = e.qtitle;
+        klon.querySelector(".data_question").textContent = e.question;
+        klon.querySelector(".data_a1").textContent = e.a1;
+        klon.querySelector(".data_a2").textContent = e.a2;
+        klon.querySelector(".data_a3").textContent = e.a3;
+        klon.querySelector(".data_a4").textContent = e.a4;
+
+        windowklon.querySelector(".window").appendChild(klon);
+    }
+
+    document.querySelector(".questionboard").innerHTML = "";
+    document.querySelector(".questionboard").appendChild(windowklon);
 }
