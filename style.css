@@ -30,3 +30,37 @@ body {
     top: 85%;
     left: 47%;
 }
+.scoreboard {
+    width: 80%;
+    height: 50%;
+    position: absolute;
+    z-index: 11;
+    top: 53vw;
+    background-color: white;
+    left: 8%;
+    display: none;
+}
+.scoretoggle {
+    display: block;
+}
+.window_score h2,
+h3,
+.groups,
+.points {
+    display: inline-block;
+}
+.tab h2 {
+    margin-left: 12%;
+    font-size: 5vw;
+    position: relative;
+    z-index: 99;
+}
+.table_name h3 {
+    margin-left: 24%;
+    font-size: 3vw;
+}
+.groups,
+.points p {
+    font-size: 5vw;
+    margin-left: 14vw;
+}
