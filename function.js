@@ -76,6 +76,7 @@ function createMarker(post) {
         infowindow.open(map, marker);
 
     }
+<<<<<<< HEAD
 }
 $(".score_button").on("click", score_toggle);
 
@@ -135,3 +136,8 @@ function score_company(e) {
 
     $(".tab_group").on("click", score_group);
 }
+=======
+};
+
+function questions() {};
+>>>>>>> master
