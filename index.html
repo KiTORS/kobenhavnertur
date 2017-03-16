@@ -22,6 +22,7 @@
 
     <div class="score_button"></div>
     <div class="question_button"></div>
+
     <template id="question_window">
         <div class=window>
             <h2 class="data_qtitle">spørgsmål x</h2>
@@ -32,6 +33,34 @@
             <p class="data_a4">svar 04</p>
         </div>
     </template>
+
+    <template id="score_window">
+        <div class="window_score">
+            <div class="tab">
+                <h2 class="tab_group">GRUPPER</h2>
+                <h2 class="tab_company">FIRMAER</h2></div>
+
+            <table class="table_name">
+                <thead>
+                    <tr>
+                        <th>NAVN</th>
+                        <th>POINT</th>
+                    </tr>
+                </thead>
+                <tbody class="score_table_body">
+                    <template id="score_row">
+                        <tr>
+                            <td class="data_gruppe">gruppe 01</td>
+                            <td class="data_points">1000</td>
+                        </tr>
+                    </template>
+                </tbody>
+
+            </table>
+        </div>
+    </template>
+
+    <div class="scoreboard"></div>
 
 
     <!-- JQUERY + JS -->
