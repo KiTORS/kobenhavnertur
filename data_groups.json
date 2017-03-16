@@ -1,0 +1,36 @@
+[{
+        "id": "g01",
+        "group": "de seje drenge",
+        "group_point": "1000",
+        "company_point": "5212",
+        "company": "Danske Bank"
+    },
+    {
+        "id": "g02",
+        "group": "powerpuff",
+        "group_point": "750",
+        "company_point": "4212",
+        "company": "Advodan"
+    },
+    {
+        "id": "g03",
+        "group": "fede finn",
+        "group_point": "500",
+        "company_point": "3212",
+        "company": "Fitness DK"
+    },
+    {
+        "id": "g04",
+        "group": "Pivus",
+        "group_point": "250",
+        "company_point": "2212",
+        "company": "TV2 Zulu"
+    },
+    {
+        "id": "g05",
+        "group": "vikingtanks",
+        "group_point": "0",
+        "company_point": "1212",
+        "company": "KEA"
+    }
+]
