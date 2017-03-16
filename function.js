@@ -2,6 +2,7 @@
 var map;
 var list;
 var list_groups;
+var company_clicked = false;
 
 // -- GOOGLE MAP -- //
 function initMap() {
@@ -75,27 +76,62 @@ function createMarker(post) {
         infowindow.open(map, marker);
 
     }
-};
-$(".score_button").on("click", score);
+}
+$(".score_button").on("click", score_toggle);
 
-function score() {
-    list_groups.forEach(scoreclone);
+function score_toggle() {
+    console.log("score knap togglet")
+    $(".scoreboard").toggleClass("scoretoggle");
+    score_group();
+
+}
+
+function score_group(e) {
+
     console.log("click on score");
 
-    function scoreclone(post) {
-        console.log("kloner score");
+    var windowklon = document.querySelector("#score_window").content.cloneNode(true);
+    list_groups.forEach(scoreclone_group);
+
+    function scoreclone_group(e) {
+        console.log("kloner group score");
         // -- CLONE -- //
-        var klon = document.querySelector("#score_window").content.cloneNode(true);
+        var klon = windowklon.querySelector("#score_row").content.cloneNode(true);
 
-        klon.querySelector(".data_gruppe01").textContent = post.group;
-        klon.querySelector(".data_gruppe02").textContent = post.group;
-        klon.querySelector(".data_gruppe03").textContent = post.group;
-        klon.querySelector(".data_gruppe04").textContent = post.group;
-        klon.querySelector(".data_gruppe05").textContent = post.group;
+        klon.querySelector(".data_gruppe").textContent = e.group;
+        klon.querySelector(".data_points").textContent = e.group_point;
 
-        document.querySelector(".scoreboard").innerHTML = "";
-        document.querySelector(".scoreboard").appendChild(klon);
-
-        $(".scoreboard").toggleClass("scoretoggle");
+        windowklon.querySelector(".score_table_body").appendChild(klon);
     }
-};
+
+    document.querySelector(".scoreboard").innerHTML = "";
+    document.querySelector(".scoreboard").appendChild(windowklon);
+
+    $(".tab_company").on("click", score_company);
+    // lav eve listn
+
+}
+
+function score_company(e) {
+
+    console.log("click on score");
+
+    var windowklon = document.querySelector("#score_window").content.cloneNode(true);
+    list_groups.forEach(scoreclone_company);
+
+    function scoreclone_company(e) {
+        console.log("kloner company score");
+        // -- CLONE -- //
+        var klon = windowklon.querySelector("#score_row").content.cloneNode(true);
+
+        klon.querySelector(".data_gruppe").textContent = e.company;
+        klon.querySelector(".data_points").textContent = e.company_point;
+
+        windowklon.querySelector(".score_table_body").appendChild(klon);
+    }
+
+    document.querySelector(".scoreboard").innerHTML = "";
+    document.querySelector(".scoreboard").appendChild(windowklon);
+
+    $(".tab_group").on("click", score_group);
+}

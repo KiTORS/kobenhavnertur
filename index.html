@@ -37,25 +37,26 @@
     <template id="score_window">
         <div class="window_score">
             <div class="tab">
-                <h2>GRUPPER</h2>
-                <h2>FIRMAER</h2></div>
-            <div class="table_name">
-                <h3>NAVN</h3>
-                <h3>POINT</h3></div>
-            <div class="groups">
-                <p class="data_gruppe01">gruppe 01</p>
-                <p class="data_gruppe02">gruppe 02</p>
-                <p class="data_gruppe03">gruppe 03</p>
-                <p class="data_gruppe04">gruppe 04</p>
-                <p class="data_gruppe05">gruppe 05</p>
-            </div>
-            <div class="points">
-                <p class="data_points01">1000</p>
-                <p class="data_points01">750</p>
-                <p class="data_points01">500</p>
-                <p class="data_points01">250</p>
-                <p class="data_points01">0</p>
-            </div>
+                <h2 class="tab_group">GRUPPER</h2>
+                <h2 class="tab_company">FIRMAER</h2></div>
+
+            <table class="table_name">
+                <thead>
+                    <tr>
+                        <th>NAVN</th>
+                        <th>POINT</th>
+                    </tr>
+                </thead>
+                <tbody class="score_table_body">
+                    <template id="score_row">
+                        <tr>
+                            <td class="data_gruppe">gruppe 01</td>
+                            <td class="data_points">1000</td>
+                        </tr>
+                    </template>
+                </tbody>
+
+            </table>
         </div>
     </template>
 
