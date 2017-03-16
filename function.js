@@ -132,3 +132,4 @@ function score_company(e) {
     document.querySelector(".scoreboard").appendChild(windowklon);
 
     $(".tab_group").on("click", score_group);
+}
