@@ -1,7 +1,7 @@
 #map {
-    height: 86%;
+    height: 95%;
     width: 100%;
-    margin-top: 10vw;
+    margin-top: 5vw;
 }
 
 /* Optional: Makes the sample page fill the window. */
@@ -15,7 +15,8 @@ body {
 .score_button {
     width: 20vw;
     height: 20vw;
-    background-color: blue;
+    background-image: url("img/kort-05.svg");
+    background-size: contain;
     position: absolute;
     z-index: 10;
     top: 85%;
@@ -24,21 +25,29 @@ body {
 .question_button {
     width: 20vw;
     height: 20vw;
-    background-color: red;
+    background-image: url("img/kort-06.svg");
+    background-size: contain;
     position: absolute;
     z-index: 10;
     top: 85%;
-    left: 47%;
+    left: 50%;
+    display: none;
 }
 .scoreboard {
     width: 80%;
     height: 50%;
     position: absolute;
     z-index: 11;
-    top: 53vw;
+    top: 59vw;
     background-color: white;
-    left: 8%;
+    left: 10%;
     display: none;
+}
+.open {
+    width: 10vw;
+    height: 10vw;
+    transform: rotate(45deg);
+    background-color: white;
 }
 .scoretoggle {
     display: block;

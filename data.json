@@ -1,11 +1,11 @@
 [{
         "id": "post_1",
-        "name": "Nyhavn bus",
+        "name": "START",
         "position": {
             "lat": 55.679126,
             "lng": 12.594271
         },
-        "about": "Post 1",
+        "about": "START",
         "qtitle": "Spørgsmål 1",
         "question": "hvorfor er nyhavn bus ikke en båd?",
         "a1": "fordi den er grim",
