@@ -196,16 +196,15 @@ function initMap() {
     directionsDisplay.setMap(map);
     console.log("Rutevejledning forbundet til map")
 
-    //    // --SVG OVERLAY-- //
-    //    var bounds = {
-    //        north: 55.69575753907373,
-    //        south: 55.67674229610198,
-    //        east: 12.654576214658732,
-    //        west: 12.563681515562052
-    //
-    //    }
-    //    var overlay = new google.maps.GroundOverlay('img/svgkort.svg', bounds);
-    //    overlay.setMap(map);
+    // --SVG OVERLAY-- //
+    var bounds = {
+        north: 55.6953286628356,
+        south: 55.67291525921655,
+        east: 12.656398614135696,
+        west: 12.550140221801712
+    }
+    var overlay = new google.maps.GroundOverlay('img/svgkort.svg', bounds);
+    overlay.setMap(map);
 
     // -- LOAD JSON DATA -- //
     $.getJSON("data_groups.json", showList_groups);
@@ -240,10 +239,14 @@ function initMap() {
         }
 
         // -- INDSÆTTER MIN POSITION PÅ MAPPET -- //
+        var meMarker = {
+            url: 'img/gpsmarker.svg',
+        }
         map.setCenter(myPos);
         var me = new google.maps.Marker({
             position: myPos,
-            map: map
+            map: map,
+            icon: meMarker
         });
         gpsmarker.push(me);
 
@@ -291,6 +294,7 @@ function initMap() {
                 // -- SPØRGSMÅLSKNAP BLIVER TRIGGERET -- //
 
                 $(".question_button").css("display", "block");
+                $(".question_button").addClass("question_button_animation");
                 console.log("Spørgsmålet til sidste stop er nu klar")
             }
 
@@ -381,12 +385,13 @@ function score_toggle() {
 // -- ÅBEN ELLER LUK QUESTIONS-VINDUE -- //
 function question_toggle() {
     console.log("question knap klikket på")
+    $(".questionboard").on("click", question_answer_open);
+    $(".question_button").removeClass("question_button_animation");
 
     // -- LUKKER VINDUE FORDI DEN ER ÅBEN -- //
     if ((questionboard == true) && (question_answer == false)) {
         console.log("fjerner questionboard fordi questionboard=", questionboard, "question_answer=", question_answer)
         $(".questionboard").removeClass("question_open");
-        $(".questionboard").on("click", question_answer_open);
         questionboard = false;
         console.log("questionboard bliver sat til", questionboard);
     } else
@@ -405,6 +410,7 @@ function question_toggle() {
         console.log("fjerner question answer fordi question_answer=", question_answer, "questionboard=", questionboard)
         $(".question_answer_window").css("display", "none");
         $(".questionboard").removeClass("question_open");
+        $(".question_button").css("display", "none");
         question_answer = false;
         console.log("question_answer bliver sat til", question_answer);
     };

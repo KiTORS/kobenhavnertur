@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Map over KEA</title>
+    <title>Københavnerture</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
@@ -28,12 +28,6 @@
         <h3 id="done"> FÆRDIG </h3>
     </div>
 
-    <!-- GPS MARKER TEST -->
-    <div class="gps">
-        <div class="white"></div>
-        <div class="blue"></div>
-    </div>
-
     <!-- GOOGLE MAP -->
     <div id="map"></div>
 
@@ -51,7 +45,13 @@
 
     <!-- QUESTION TEMPLATE TIL KLON -->
     <template id="question_window">
+        <div class="a1_wrap"></div>
+        <div class="a2_wrap"></div>
+        <div class="a3_wrap"></div>
+        <div class="a4_wrap"></div>
         <div class=window>
+            <div class="question_wrap"></div>
+
             <template id="question">
                 <h2 class="data_qtitle">spørgsmål x</h2>
                 <h3 class="data_question">godt spørgsmål</h3>
@@ -68,14 +68,18 @@
 
     <!-- VINDUE NÅR ET SPØRGSMÅL ER BESVARET -->
     <div class="question_answer_window">
-        <h2>Tak for dit svar</h2>
-        <p>Du kan tale med guiden, hvis du vil vide det korrekte svar</p>
+        <div class="svar_wrap"></div>
+        <h2>Tak for dit svar!</h2>
+        <p>Du kan tale med guiden,
+            <br> hvis du vil vide det korrekte svar!</p>
     </div>
 
     <!-- SCORE TEMPLATE TIL KLON -->
     <template id="score_window">
         <div class="window_score">
             <div class="tab">
+                <div class="gruppe_wrap"></div>
+                <div class="firma_wrap"></div>
                 <h2 class="tab_group">GRUPPER</h2>
                 <h2 class="tab_company">FIRMAER</h2></div>
 
