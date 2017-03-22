@@ -1,5 +1,22 @@
+window.onload = intro;
+
+function intro() {
+    $(".loadingscreen").css("display", "block");
+    setTimeout(loadingscreenHide, 2000);
+}
+
+function loadingscreenHide() {
+    $(".loadingscreen").css("display", "none");
+    $("#done").on("click", hideCreateGroup);
+}
+
+function hideCreateGroup() {
+    $(".creategroup").css("display", "none");
+}
+
 // -- VARIABLER ( NOGLE ER IKKE I BRUG -> DET ER IKKE TJEKKET HVILKE ) -- //
 var map;
+var nextMarkerReached = false;
 var list;
 var list_groups;
 var company_clicked = false;
@@ -248,24 +265,41 @@ function initMap() {
             var nextMarkerDistance = google.maps.geometry.spherical.computeDistanceBetween(myPos, nextMarkerPosition);
             console.log("tjekker hvor langt du er fra nextMarker", markerNumber + 1, nextMarkerDistance);
 
-            // -- DEN FØRSTE MARKER -- //
-            if (markerNumber == 0) {
-                console.log("Da du er på starten af turen, er currentMarker sat til post 1(START)");
-                markerNumber++;
-                applynewmarker();
-            } else
+            console.log(currentMarkerDistance);
 
-            // -- DEN NÆSTE MARKER  -- //
-            if ((currentMarkerDistance < 20) && (nextMarkerDistance > 20)) {
-                console.log("Du er længere væk end 20 meter fra din currentMarker, så nu bliver nextMarker vist");
-                markerNumber++;
-                console.log("marker number er sat til", markerNumber);
+            // -- LAV RUTE TIL NÆSTE MARKER -- //
+            if (currentMarkerDistance == 0) {
+                console.log("den første marker er sat og er grøn");
+                customMarker = {
+                    url: 'img/kort_pin_past.svg',
+                };
+
+                // -- INDSÆTTER DEN PÅ KORTET -- //
+                firstMarkerPosition = new google.maps.LatLng(list[0].position.lat, list[0].position.lng);
+                firstMarker = new google.maps.Marker({
+                    position: firstMarkerPosition,
+                    map: map,
+                    title: list[0].name,
+                    icon: customMarker,
+                });
+
+            }
+            if (currentMarkerDistance > 20) {
+                console.log("ny rute til næste marker");
                 applynewmarker();
 
                 // -- SPØRGSMÅLSKNAP BLIVER TRIGGERET -- //
 
                 $(".question_button").css("display", "block");
                 console.log("Spørgsmålet til sidste stop er nu klar")
+            }
+
+            // -- DU ER NÅET NÆSTE MARKER
+            if (nextMarkerDistance < 20) {
+                nextMarkerReached = true;
+                markerNumber++;
+                console.log("Du har nået næste marker og markerNumber bliver sat til", markerNumber);
+                applynewmarker();
             }
         }
     })
@@ -274,33 +308,15 @@ function initMap() {
     function applynewmarker() {
         var customMarker;
 
-        // -- FØRSTE MARKER (GRØN) -- //
-        if (currentMarker.id == list[0].id) {
-            console.log("den første marker er sat og er grøn");
-            customMarker = {
-                url: 'img/kort_pin_past.svg',
-            };
-
-            // -- INDSÆTTER DEN PÅ KORTET -- //
-            firstMarkerPosition = new google.maps.LatLng(list[0].position.lat, list[0].position.lng);
-            firstMarker = new google.maps.Marker({
-                position: firstMarkerPosition,
-                map: map,
-                title: list[0].name,
-                icon: customMarker,
-            });
-
-        } else
-
         // -- TIDLIGERE MARKERE (GRØN) -- //
-        if (currentMarker.id == list[markerNumber - 1].id) {
+        if (currentMarker.id == list[markerNumber].id) {
             console.log("Alle past markers er blevet skiftet til grønne");
             customMarker = {
                 url: 'img/kort_pin_past.svg',
             };
 
             // -- ÆNDRE FARVEN PÅ TIDLIGERE MARKERE TIL GRØN -- //
-            oldMarkerPosition = new google.maps.LatLng(list[markerNumber - 1].position.lat, list[markerNumber - 1].position.lng);
+            oldMarkerPosition = new google.maps.LatLng(list[markerNumber].position.lat, list[markerNumber].position.lng);
             oldMarker = new google.maps.Marker({
                 position: oldMarkerPosition,
                 map: map,
@@ -310,23 +326,20 @@ function initMap() {
         }
 
         // -- NÆSTE MARKER -- //
-        if (nextMarker.id == list[markerNumber].id) {
+        if (nextMarker.id == list[markerNumber + 1].id) {
             console.log("Den næste marker er blevet sat og er rød")
             customMarker = {
                 url: 'img/kort_pin_next.svg',
             };
 
             // -- INDSÆTTER NÆSTE MARKER (RØD) -- //
-            newMarkerPosition = new google.maps.LatLng(list[markerNumber].position.lat, list[markerNumber].position.lng);
+            newMarkerPosition = new google.maps.LatLng(list[markerNumber + 1].position.lat, list[markerNumber + 1].position.lng);
             newMarker = new google.maps.Marker({
                 position: newMarkerPosition,
                 map: map,
-                title: list[markerNumber].name,
+                title: list[markerNumber + 1].name,
                 icon: customMarker,
             });
-
-            // -- TRIGGER KLIK PÅ MARKER -- //
-            newMarker.addListener("click", clickOnMarker);
 
             // -- TRIGGER RUTEVEJLEDNING -- //
             makeRoute();
@@ -352,34 +365,6 @@ function initMap() {
             }
         });
     }
-}
-
-// -- KLIK PÅ MARKER -- //
-function clickOnMarker(marker) {
-    console.log("Du har trykket på en marker");
-    var infowindow = new google.maps.InfoWindow({});
-
-    // -- ÅBEN INFO WINDOW HVIS DEN IKKE ER ÅBEN I FORVEJEN -- //
-    if (info_open == false) {
-
-        // -- KLON -- //
-        var klon = document.querySelector("#infobox").content.cloneNode(true);
-
-        klon.querySelector(".data_name").textContent = marker.title;
-        klon.querySelector(".data_about").textContent = marker.about;
-
-        // -- INDSÆT KLON I HTML -- //
-        infowindow.setContent(klon);
-        infowindow.open(map, newMarker);
-        info_open = true;
-    }
-
-    // -- LUK INFO WINDOW HVIS DEN ALLEREDE ER ÅBEN (IKKE FÆRDIGT) -- //
-    else {
-        info_open = false;
-        // SKAL FJERNE "HIDE" INFOWINDOW, MEN HVORDAN?
-    };
-
 }
 
 // -- AKTIVER KNAPPER -- //
@@ -493,13 +478,12 @@ function questions(e) {
     var windowklon = document.querySelector("#question_window").content.cloneNode(true);
     console.log("windowklon er defineret");
     list.forEach(questionclone);
-    currentpost = list[0].id;
 
     // -- KLONER INDHOLD -- //
     function questionclone(postdata) {
-        console.log("kloner før if");
-        if (postdata.id == currentpost) {
-            test = postdata;
+        var lastmarker = list[markerNumber].id;
+        var postDataId = postdata.id;
+        if (postDataId == lastmarker) {
             console.log("kloner spørgsmål");
             var klon = windowklon.querySelector("#question").content.cloneNode(true);
 
@@ -515,8 +499,9 @@ function questions(e) {
             // -- INDSÆTTER INDHOLD I DIV -- //
             document.querySelector(".questionboard").innerHTML = "";
             document.querySelector(".questionboard").appendChild(windowklon);
-        };
-    };
+        }
+
+    }
 }
 
 // -- TAK FOR SVAR PÅ SPØRGSMÅL -- //
