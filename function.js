@@ -1,4 +1,4 @@
-// -- VARIABLER -- //
+// -- VARIABLER ( NOGLE ER IKKE I BRUG -> DET ER IKKE TJEKKET HVILKE ) -- //
 var map;
 var list;
 var list_groups;
@@ -157,8 +157,8 @@ var silverStyle = [
 function initMap() {
 
     // -- LOAD RUTEVEJLEDNING SERVICE -- //
-    var directionsService = new google.maps.DirectionsService();
-    var directionsDisplay = new google.maps.DirectionsRenderer({
+    directionsService = new google.maps.DirectionsService();
+    directionsDisplay = new google.maps.DirectionsRenderer({
         suppressMarkers: true
     });
     console.log("Rutevejledning Service loadet")
@@ -226,14 +226,14 @@ function initMap() {
         map.setCenter(myPos);
         var me = new google.maps.Marker({
             position: myPos,
-            map: map,
+            map: map
         });
         gpsmarker.push(me);
 
-        console.log("GPS marker er sat på min position");
+        console.log("GPS marker er sat på min position og mappet er centreret til min position");
         findDistance();
 
-        // -- TJEK DISTANCEN IMELLEM MIG MARKER -- //
+        // -- TJEK DISTANCEN IMELLEM MIG OG MARKER -- //
         function findDistance() {
 
             // -- FIND AFSTAND PÅ NUVÆRENDE MARKER OG MIG -- //
@@ -254,11 +254,15 @@ function initMap() {
                 markerNumber++;
                 applynewmarker();
             } else
+
+            // -- DEN NÆSTE MARKER  -- //
             if ((currentMarkerDistance < 20) && (nextMarkerDistance > 20)) {
                 console.log("Du er længere væk end 20 meter fra din currentMarker, så nu bliver nextMarker vist");
                 markerNumber++;
                 console.log("marker number er sat til", markerNumber);
                 applynewmarker();
+
+                // -- SPØRGSMÅLSKNAP BLIVER TRIGGERET -- //
 
                 $(".question_button").css("display", "block");
                 console.log("Spørgsmålet til sidste stop er nu klar")
@@ -266,15 +270,18 @@ function initMap() {
         }
     })
 
-    // -- FIND NÆSTE MARKER  -- //
+    // -- SÆT NÆSTE MARKER  -- //
     function applynewmarker() {
         var customMarker;
 
+        // -- FØRSTE MARKER (GRØN) -- //
         if (currentMarker.id == list[0].id) {
             console.log("den første marker er sat og er grøn");
             customMarker = {
                 url: 'img/kort_pin_past.svg',
             };
+
+            // -- INDSÆTTER DEN PÅ KORTET -- //
             firstMarkerPosition = new google.maps.LatLng(list[0].position.lat, list[0].position.lng);
             firstMarker = new google.maps.Marker({
                 position: firstMarkerPosition,
@@ -284,11 +291,15 @@ function initMap() {
             });
 
         } else
+
+        // -- TIDLIGERE MARKERE (GRØN) -- //
         if (currentMarker.id == list[markerNumber - 1].id) {
             console.log("Alle past markers er blevet skiftet til grønne");
             customMarker = {
                 url: 'img/kort_pin_past.svg',
             };
+
+            // -- ÆNDRE FARVEN PÅ TIDLIGERE MARKERE TIL GRØN -- //
             oldMarkerPosition = new google.maps.LatLng(list[markerNumber - 1].position.lat, list[markerNumber - 1].position.lng);
             oldMarker = new google.maps.Marker({
                 position: oldMarkerPosition,
@@ -297,11 +308,15 @@ function initMap() {
                 icon: customMarker,
             });
         }
+
+        // -- NÆSTE MARKER -- //
         if (nextMarker.id == list[markerNumber].id) {
             console.log("Den næste marker er blevet sat og er rød")
             customMarker = {
                 url: 'img/kort_pin_next.svg',
             };
+
+            // -- INDSÆTTER NÆSTE MARKER (RØD) -- //
             newMarkerPosition = new google.maps.LatLng(list[markerNumber].position.lat, list[markerNumber].position.lng);
             newMarker = new google.maps.Marker({
                 position: newMarkerPosition,
@@ -309,19 +324,15 @@ function initMap() {
                 title: list[markerNumber].name,
                 icon: customMarker,
             });
+
+            // -- TRIGGER KLIK PÅ MARKER -- //
             newMarker.addListener("click", clickOnMarker);
+
+            // -- TRIGGER RUTEVEJLEDNING -- //
             makeRoute();
         }
 
-        // -- TRIGGER RUTE -- //
-
-        // -- GØR KLAR TIL NÆSTE MARKER -- //
-
-        // -- TRIGGER MARKER KLIK -- //
-
     };
-
-
 
     // -- RUTEVEJLEDNING -- //
     function makeRoute() {
@@ -343,12 +354,12 @@ function initMap() {
     }
 }
 
-// -- CLICK ON MARKER -- //
+// -- KLIK PÅ MARKER -- //
 function clickOnMarker(marker) {
     console.log("Du har trykket på en marker");
     var infowindow = new google.maps.InfoWindow({});
 
-    // -- HVIS INFOWINDOW IKKE ER ÅBENT -- //
+    // -- ÅBEN INFO WINDOW HVIS DEN IKKE ER ÅBEN I FORVEJEN -- //
     if (info_open == false) {
 
         // -- KLON -- //
@@ -363,42 +374,30 @@ function clickOnMarker(marker) {
         info_open = true;
     }
 
-    // -- HVIS INFOWINDOW ER ÅBENT -- //
+    // -- LUK INFO WINDOW HVIS DEN ALLEREDE ER ÅBEN (IKKE FÆRDIGT) -- //
     else {
         info_open = false;
+        // SKAL FJERNE "HIDE" INFOWINDOW, MEN HVORDAN?
     };
 
 }
 
-
-
-// 2. indsæt rigtigt design:
-//// -- Marker
-//// -- gps marker
-//// -- spørgsmål ikon
-//// -- questionboard
-//// -- scoreboard
-//// -- Start screen
-//// -- Slut screen
-// 3. Rigtig spørgsmål til rigtig post
-// 4. Optimér kode
-
-
-
-
-
-// -- SCORE & SPØRGSMÅL KNAP -- //
+// -- AKTIVER KNAPPER -- //
 $(".score_button").on("click", score_toggle);
 $(".question_button").on("click", question_toggle);
 
+// -- ÅBEN ELLER LUK SCORE -- //
 function score_toggle() {
     console.log("score knap togglet");
     $(".scoreboard").toggleClass("scoretoggle");
     score_group();
 }
 
+// -- ÅBEN ELLER LUK QUESTIONS-VINDUE -- //
 function question_toggle() {
     console.log("question knap klikket på")
+
+    // -- LUKKER VINDUE FORDI DEN ER ÅBEN -- //
     if ((questionboard == true) && (question_answer == false)) {
         console.log("fjerner questionboard fordi questionboard=", questionboard, "question_answer=", question_answer)
         $(".questionboard").removeClass("question_open");
@@ -406,6 +405,8 @@ function question_toggle() {
         questionboard = false;
         console.log("questionboard bliver sat til", questionboard);
     } else
+
+    // -- ÅBNER VINDUE FORDI DEN ER LUKKET -- //
     if ((questionboard == false) && (question_answer == false)) {
         console.log("åbner questionboard fordi questionboard=", questionboard, "question_answer=", question_answer)
         $(".questionboard").addClass("question_open");
@@ -413,6 +414,8 @@ function question_toggle() {
         console.log("questionboard bliver sat til", questionboard);
         questions();
     } else
+
+    // -- LUKKER VINDUE FORDI SVAR-VINDUE ER ÅBEN -- //
     if ((questionboard == false) && (question_answer == true)) {
         console.log("fjerner question answer fordi question_answer=", question_answer, "questionboard=", questionboard)
         $(".question_answer_window").css("display", "none");
@@ -423,7 +426,6 @@ function question_toggle() {
 }
 
 // -- SCORE -- //
-
 function score_group(e) {
     console.log("click on score");
 
@@ -434,6 +436,7 @@ function score_group(e) {
     // -- KLONER INDHOLD -- //
     function scoreclone_group(e) {
         console.log("kloner group score");
+
         // -- CLONE -- //
         var klon = windowklon.querySelector("#score_row").content.cloneNode(true);
 
@@ -491,6 +494,7 @@ function questions(e) {
     console.log("windowklon er defineret");
     list.forEach(questionclone);
     currentpost = list[0].id;
+
     // -- KLONER INDHOLD -- //
     function questionclone(postdata) {
         console.log("kloner før if");
@@ -516,7 +520,6 @@ function questions(e) {
 }
 
 // -- TAK FOR SVAR PÅ SPØRGSMÅL -- //
-
 function question_answer_open() {
     if (question_answer == false) {
         console.log("question answer åbner fordi den er", question_answer, "og questionboard=", questionboard)
@@ -529,3 +532,14 @@ function question_answer_open() {
         console.log("gør ingenting da question answer er åben")
     }
 }
+
+
+// -- HVAD MANGLER VI?? -- //
+// 2. indsæt rigtigt design:
+//// -- gps marker
+//// -- questionboard
+//// -- scoreboard
+//// -- Start screen
+//// -- Slut screen
+// 3. Rigtig spørgsmål til rigtig post
+// 4. Optimér kode

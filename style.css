@@ -1,10 +1,4 @@
-#map {
-    height: 95%;
-    width: 100%;
-    margin-top: 5vw;
-}
-
-/* Optional: Makes the sample page fill the window. */
+/*-- HTML + BODY STØRRELSE --*/
 
 html,
 body {
@@ -12,6 +6,17 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/*-- GOOGLE MAP --*/
+
+#map {
+    height: 95%;
+    width: 100%;
+    margin-top: 5vw;
+}
+
+/*-- SCORE --*/
+
 .score_button {
     width: 20vw;
     height: 20vw;
@@ -21,17 +26,6 @@ body {
     z-index: 10;
     top: 85%;
     left: 73%;
-}
-.question_button {
-    width: 20vw;
-    height: 20vw;
-    background-image: url("img/kort-06.svg");
-    background-size: contain;
-    position: absolute;
-    z-index: 10;
-    top: 85%;
-    left: 50%;
-    display: none;
 }
 .scoreboard {
     width: 80%;
@@ -43,12 +37,6 @@ body {
     left: 10%;
     display: none;
 }
-.open {
-    width: 10vw;
-    height: 10vw;
-    transform: rotate(45deg);
-    background-color: white;
-}
 .scoretoggle {
     display: block;
 }
@@ -59,12 +47,14 @@ h3,
     display: inline-block;
 }
 .tab h2 {
-    margin-left: 12%;
+    margin-left: 14%;
     font-size: 5vw;
     position: relative;
     z-index: 99;
+    font-family: 'Roboto', sans-serif;
 }
-.table_name h3 {
+.table_name {
+    font-family: 'Roboto', sans-serif;
     margin-left: 24%;
     font-size: 3vw;
 }
@@ -72,6 +62,20 @@ h3,
 .points p {
     font-size: 5vw;
     margin-left: 14vw;
+}
+
+/*-- QUESTION --*/
+
+.question_button {
+    width: 20vw;
+    height: 20vw;
+    background-image: url("img/kort-06.svg");
+    background-size: contain;
+    position: absolute;
+    z-index: 10;
+    top: 85%;
+    left: 50%;
+    display: none;
 }
 .questionboard {
     width: 80%;
@@ -95,4 +99,52 @@ h3,
     top: 55%;
     background-color: white;
     left: 8%;
+}
+
+/* -- GPS -- */
+
+.gps {
+    left: 50vw;
+    top: 80vw;
+    position: absolute;
+    z-index: 999999;
+    display: none;
+}
+.gps .white {
+    background-image: url("img/kort_dig.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 10vw;
+    height: 10vw;
+    /*    margin-top: 50vw;*/
+    position: absolute;
+}
+.gps .blue {
+    background-image: url("img/kort_dig2.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 8vw;
+    height: 8vw;
+    position: absolute;
+    margin-top: 1vw;
+    margin-left: 1vw;
+    -webkit-animation: pulsate 2s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.0
+}
+@-webkit-keyframes pulsate {
+    0% {
+        -webkit-transform: scale(0.1, 0.1);
+        opacity: 0.0;
+    }
+    30% {
+        opacity: 1.0;
+    }
+    60% {
+        -webkit-transform: scale(1.2, 1.2);
+        opacity: 0.0;
+    }
+    100% {
+        opacity: 0.0;
+    }
 }

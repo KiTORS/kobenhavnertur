@@ -6,12 +6,22 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 </head>
 
 <body>
+
+    <!-- GPS MARKER TEST -->
+    <div class="gps">
+        <div class="white"></div>
+        <div class="blue"></div>
+    </div>
+
+    <!-- GOOGLE MAP -->
     <div id="map"></div>
 
+    <!-- INFOWINDOW TEMPLATE TIL KLON -->
     <template id="infobox">
         <div class=window>
             <h3 class="data_name">headline</h3>
@@ -19,9 +29,11 @@
         </div>
     </template>
 
+    <!-- KNAPPER -->
     <div class="score_button"></div>
     <div class="question_button"></div>
 
+    <!-- QUESTION TEMPLATE TIL KLON -->
     <template id="question_window">
         <div class=window>
             <template id="question">
@@ -35,11 +47,16 @@
         </div>
     </template>
 
+    <!-- DIV QUESTION TEMPLATE BLIVER SAT IND I -->
+    <div class="questionboard"></div>
+
+    <!-- VINDUE NÅR ET SPØRGSMÅL ER BESVARET -->
     <div class="question_answer_window">
         <h2>Tak for dit svar</h2>
         <p>Du kan tale med guiden, hvis du vil vide det korrekte svar</p>
     </div>
 
+    <!-- SCORE TEMPLATE TIL KLON -->
     <template id="score_window">
         <div class="window_score">
             <div class="tab">
@@ -66,8 +83,8 @@
         </div>
     </template>
 
+    <!-- DIV SCORE TEMPLATE BLIVER SAT IND I -->
     <div class="scoreboard"></div>
-    <div class="questionboard"></div>
 
 
     <!-- JQUERY + JS -->
